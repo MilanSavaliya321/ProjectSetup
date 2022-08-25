@@ -5,6 +5,7 @@
 //  Created by PC on 04/07/22.
 //
 
+import UIKit
 import Foundation
 import LocalAuthentication
 
@@ -73,3 +74,32 @@ extension Utils {
     }
 }
 
+// MARK: - show Alert For AppSettings
+extension Utils {
+    class func showAlertForAppSettings(title: String, message: String, allowCancel: Bool = true, completion: @escaping (Bool) -> ()) {
+        
+        let alertController: UIAlertController = UIAlertController(title: NSLocalizedString(title, comment: ""), message: NSLocalizedString(message, comment: ""), preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: .default, handler: { (action) -> Void in
+            
+            let settingURL = URL(string: UIApplication.openSettingsURLString)!
+            
+            if(UIApplication.shared.canOpenURL(settingURL)) {
+                UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
+            }
+            
+            completion(false)
+            
+        }))
+        
+        if allowCancel {
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (action) -> Void in
+                
+                completion(false)
+                
+            }))
+        }
+        
+        UIApplication.rootViewController()?.present(alertController, animated: true, completion: nil)
+    }
+}
