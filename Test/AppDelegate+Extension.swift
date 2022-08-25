@@ -18,6 +18,9 @@ extension AppDelegate {
                     DLog("reachable")
                     if self.isNoInternetViewPresent, let topVC = UIApplication.getTopViewController(),
                        topVC.isKind(of: NoInternetConnection.self) {
+                        guard AccountManager.shared.isLoggedIn() else {
+                            topVC.dismiss(animated: true, completion: nil)
+                            return }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             self.isNoInternetViewPresent = false
                             // Utility.windowMain()?.rootViewController = tabBarVC
