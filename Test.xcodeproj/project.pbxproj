@@ -34,7 +34,7 @@
 		887AF23C2874581C00CF509B /* NoInternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887AF23A2874581C00CF509B /* NoInternetConnection.swift */; };
 		887AF23D2874581C00CF509B /* NoInternetConnection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887AF23B2874581C00CF509B /* NoInternetConnection.xib */; };
 		887AF23F2874615100CF509B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887AF23E2874615000CF509B /* Dictionary.swift */; };
-		8886E39E28B78E1B00F088E8 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886E39D28B78E1B00F088E8 /* LocationHelper.swift */; };
+		8886E39E28B78E1B00F088E8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886E39D28B78E1B00F088E8 /* LocationManager.swift */; };
 		889CCFFE2870310D008DEF99 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CCFFD2870310D008DEF99 /* UserDefaultManager.swift */; };
 		889D8BA6287707D500758F79 /* AllowLandscapeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889D8BA5287707D500758F79 /* AllowLandscapeVC.swift */; };
 		88FB0A392872EBDD000DE264 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FB0A382872EBDD000DE264 /* UIViewController.swift */; };
@@ -81,7 +81,7 @@
 		887AF23A2874581C00CF509B /* NoInternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetConnection.swift; sourceTree = "<group>"; };
 		887AF23B2874581C00CF509B /* NoInternetConnection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetConnection.xib; sourceTree = "<group>"; };
 		887AF23E2874615000CF509B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		8886E39D28B78E1B00F088E8 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		8886E39D28B78E1B00F088E8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		889CCFFD2870310D008DEF99 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		889D8BA5287707D500758F79 /* AllowLandscapeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowLandscapeVC.swift; sourceTree = "<group>"; };
 		88FB0A382872EBDD000DE264 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 				889CCFFD2870310D008DEF99 /* UserDefaultManager.swift */,
 				887AF231287452E500CF509B /* ImagePickerManager.swift */,
 				887AF236287456B900CF509B /* ReachabilityManager.swift */,
-				8886E39D28B78E1B00F088E8 /* LocationHelper.swift */,
+				8886E39D28B78E1B00F088E8 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 				88479EBB286F047300BA0B68 /* UIApplication.swift in Sources */,
 				8837BE33286DACBE00B0D0BD /* Application.swift in Sources */,
 				887AF2342874545100CF509B /* ToolbarPickerView.swift in Sources */,
-				8886E39E28B78E1B00F088E8 /* LocationHelper.swift in Sources */,
+				8886E39E28B78E1B00F088E8 /* LocationManager.swift in Sources */,
 				88FB0A392872EBDD000DE264 /* UIViewController.swift in Sources */,
 				887AF237287456B900CF509B /* ReachabilityManager.swift in Sources */,
 				8837BE35286DADAC00B0D0BD /* Collection.swift in Sources */,

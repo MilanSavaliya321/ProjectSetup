@@ -1,5 +1,5 @@
 //
-//  LocationHelper.swift
+//  LocationManager.swift
 //  Test
 //
 //  Created by PC on 25/08/22.
