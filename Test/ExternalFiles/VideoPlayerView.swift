@@ -5,10 +5,6 @@
 //  Created by PC on 04/07/22.
 //
 
-import UIKit
-import AVFoundation
-import AVKit
-
 class VideoPlayerView: UIView {
     
     //MARK: Outlets
@@ -42,7 +38,12 @@ class VideoPlayerView: UIView {
     }
     
     deinit {
+        print("deinit VideoPlayerView")
+        player?.removeObserver(self, forKeyPath: "timeControlStatus")
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("AVPlayerItemDidPlayToEndTimeNotification"), object: nil)
         NotificationCenter.default.removeObserver(self)
+        player = nil
+        player?.removeAllItems()
     }
     
     override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -112,10 +113,11 @@ private extension VideoPlayerView {
         self.addSubview(playPauseButton)
         
         playPauseButton.translatesAutoresizingMaskIntoConstraints = false
-        playPauseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        playPauseButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        playPauseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        playPauseButton.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        playPauseButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        playPauseButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        playPauseButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        playPauseButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        
         
         playPauseButton.addTarget(self, action: #selector(onTapPlayPauseVideoButton(_:)), for: .touchUpInside)
         playPauseButton.setImage(UIImage(named: "ic_play"), for: .normal)
