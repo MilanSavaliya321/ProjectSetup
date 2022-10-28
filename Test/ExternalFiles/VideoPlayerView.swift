@@ -5,6 +5,10 @@
 //  Created by PC on 04/07/22.
 //
 
+import UIKit
+import AVFoundation
+import AVKit
+
 class VideoPlayerView: UIView {
     
     //MARK: Outlets
@@ -195,4 +199,3 @@ private extension VideoPlayerView {
         }
     }
 }
-
