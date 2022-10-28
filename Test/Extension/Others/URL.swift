@@ -53,3 +53,43 @@ extension URL {
        return (try? resourceValues(forKeys: [.isDirectoryKey]))?.isDirectory == true
     }
 }
+
+extension URL {
+    var creationDate: Date? {
+        return (try? resourceValues(forKeys: [.creationDateKey]))?.creationDate
+    }
+    
+    func getThumbnailImage() -> UIImage? {
+        let asset = AVAsset(url: self)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+
+        var time = asset.duration
+        time.value = min(time.value, 2)
+
+        do {
+            let imageRef = try assetImageGenerator.copyCGImage(at: time, actualTime: nil)
+            return UIImage(cgImage: imageRef)
+        } catch {
+            print("error in thumbnail")
+            return nil
+        }
+    }
+    
+    var attributes: [FileAttributeKey : Any]? {
+        do {
+            return try FileManager.default.attributesOfItem(atPath: path)
+        } catch let error as NSError {
+            print("FileAttribute error: \(error)")
+        }
+        return nil
+    }
+
+    var fileSize: UInt64 {
+        return attributes?[.size] as? UInt64 ?? UInt64(0)
+    }
+
+    var fileSizeString: String {
+        return ByteCountFormatter.string(fromByteCount: Int64(fileSize), countStyle: .file)
+    }
+
+}
