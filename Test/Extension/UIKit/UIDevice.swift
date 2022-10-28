@@ -89,3 +89,40 @@ extension UIDevice {
     }
 
 }
+
+extension UIDevice {
+    var hasNotch: Bool {
+        if #available(iOS 11.0, *) {
+            let bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+            return bottom > 0
+        } else {
+            // Fallback on earlier versions
+            let bottom = UIApplication.shared.keyWindow?.layoutMargins.bottom ?? 0
+            return bottom > 0
+        }
+        
+    }
+    
+    var modelName: String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        return identifier
+    }
+    
+    var version_number : Float {
+        let version = self.systemVersion
+        let temp = version.split(separator: ".")
+        var str = String()
+        if temp.count == 3 || temp.count == 2{
+            str += temp[0]
+            str += "."
+            str += temp[1]
+        }
+        return Float(str)!
+    }
+}
