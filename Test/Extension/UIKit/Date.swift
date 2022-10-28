@@ -105,3 +105,21 @@ extension Date {
         : DateInterval(start: date2, end: date1).contains(self)
     }
 }
+
+
+extension Date {
+    func toString(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}
+
+extension String {
+    func toDate(_ format: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: self) ?? Date()
+    }
+}
