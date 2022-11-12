@@ -93,3 +93,29 @@ extension URL {
     }
 
 }
+
+extension URL {
+    
+    var containsImage: Bool {
+        let mimeType = self.mimeType()
+        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)?.takeRetainedValue() else {
+             return false
+        }
+        return UTTypeConformsTo(uti, kUTTypeImage)
+    }
+
+    var containsAudio: Bool {
+        let mimeType = self.mimeType()
+        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)?.takeRetainedValue() else {
+              return false
+        }
+        return UTTypeConformsTo(uti, kUTTypeAudio)
+    }
+    var containsVideo: Bool {
+        let mimeType = self.mimeType()
+        guard  let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)?.takeRetainedValue() else {
+               return false
+        }
+        return UTTypeConformsTo(uti, kUTTypeMovie)
+    }
+}
