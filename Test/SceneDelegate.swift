@@ -55,6 +55,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         window.makeKeyAndVisible()
+        UIView.transition(with: window,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve,
+                              animations: nil,
+                              completion: nil)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
